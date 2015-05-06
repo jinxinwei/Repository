@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mybos.domain">
+<class name="User" table="User">
+	<id name="id" type="java.lang.Long">
+	<column name="id" not-null="true"></column>
+	<generator class="native"></generator>
+	</id>
+	<property name="name" type="java.lang.String">
+	<column name="name" not-null="true" length="20" unique="true"></column>
+	</property>
+	
+
+	<property name="password" type="java.lang.String">
+	<column name="password" not-null="true" length="40"></column>
+	</property>
+	
+	<property name="sex" type="java.lang.String">
+	<column name="sex" not-null="true" length="3"></column>
+	</property>
+		
+	<property name="birthday" type="timestamp">
+	<column name="birthday" not-null="false"></column>
+	</property>
+
+	<property name="company" type="java.lang.String">
+	<column name="company" not-null="false" length="30"></column>
+	</property>
+	
+	<property name="salary" type="java.lang.Long">
+	<column name="salary" not-null="false"></column>
+	</property>
+	
+	<property name="telephone" type="java.lang.String">
+	<column name="telephone" not-null="false" length="15"></column>
+	</property>
+	
+	<property name="info" type="java.lang.String">
+	<column name="info" not-null="false"></column>
+	</property>
+	
+	
+	
+	<set name="roles" lazy="false" table="user_role">
+		<key column="user_id"></key>
+		<many-to-many column="role_id" class="Role"></many-to-many>
+	</set>
+	
+	<set name="standards" lazy="true">
+		<key column="user_id"></key>
+		<one-to-many class="Standard"/>
+	</set>
+	
+</class>
+</hibernate-mapping>

@@ -1,0 +1,7 @@
+[
+{id:1,pid:0,title:'用户管理',click:false,link:'user_index.action'},
+{id:2,pid:0,title:'你叫什么2',click:false,link:'test_list.action'},
+{id:3,pid:2,title:'你叫什么3',click:true,link:'test_list.action'},
+{id:4,pid:2,title:'你叫什么4',click:true,link:'test_list.action'},
+{id:5,pid:2,title:'你叫什么5',click:true,link:'test_list.action'},
+{id:6,pid:0,title:'你叫什么6',click:false,link:'test_list.action'}]

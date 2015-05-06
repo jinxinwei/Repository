@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mybos.domain">
+<class name="Region" table="Region">
+	<id name="id" type="java.lang.Long">
+	<column name="id" not-null="true"></column>
+	<generator class="native"></generator>
+	</id>
+	<property name="province" type="java.lang.String">
+	<column name="province" not-null="true" length="50"></column>
+	</property>
+	<property name="city" type="java.lang.String">
+	<column name="city" not-null="true" length="50"></column>
+	</property>
+	<property name="district" type="java.lang.String">
+	<column name="district" not-null="true" length="50"></column>
+	</property>
+	<property name="postcode" type="java.lang.String">
+	<column name="postcode" not-null="true" length="50"></column>
+	</property>
+	<property name="shortcode" type="java.lang.String">
+	<column name="shortcode" not-null="true" length="30"></column>
+	</property>
+	<property name="citycode" type="java.lang.String">
+	<column name="citycode" not-null="true" length="30"></column>
+	</property>
+	<set name="subareas" lazy="true">
+		<key column="region_id"></key>
+		<one-to-many class="Subarea"/>
+	</set>
+</class>
+</hibernate-mapping>

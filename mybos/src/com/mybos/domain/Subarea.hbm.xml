@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mybos.domain">
+<class name="Subarea" table="Subarea">
+	<id name="id" type="java.lang.Long">
+	<column name="id" not-null="true"></column>
+	<generator class="native"></generator>
+	</id>
+	
+	<many-to-one name="region" class="Region" not-null="true" column="region_id"></many-to-one>
+	
+	<property name="addresskey" type="java.lang.String">
+	<column name="addresskey" not-null="true" length="32"></column>
+	</property>
+
+	<property name="startnum" type="java.lang.String">
+	<column name="startnum" not-null="true" length="30"></column>
+	</property>
+	<property name="endnum" type="java.lang.String">
+	<column name="endnum" not-null="true" length="30"></column>
+	</property>
+	
+	<property name="single" type="boolean">
+	<column name="single" not-null="true"></column>
+	</property>
+	
+	<property name="position" type="java.lang.String">
+	<column name="position" not-null="true"></column>
+	</property>
+	
+	<many-to-one name="decidedzone" class="Decidedzone" column="decidedzone_id" not-null="true"></many-to-one>
+
+
+	
+</class>
+</hibernate-mapping>
